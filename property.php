@@ -124,70 +124,27 @@
                     $result=mysqli_query($cn,$s);
                     $r=mysqli_num_rows($result);
                     //echo $r;
-                    while($data=mysqli_fetch_array($result))
-                    {   
-            ?>  
-                        <div class="col-md-4 gal-img ">
-                            <a href="single.php?z=<?php echo $data['property_id']; ?>">
-                                <img src="admin/upload_image/<?php echo $data[7]; ?>" alt="Gallery Image" class="img-fluid">
-                            </a>
-                        </div>
+                    if($r>0)
+                    {
+                        echo "<script>alert('Property found Successfully');</script>";
+                        while($data=mysqli_fetch_array($result))
+                        {   
+            ?> 
+                    <div class="col-md-4 gal-img ">
+                        <a href="single.php?z=<?php echo $data['property_id']; ?>">
+                            <img src="admin/upload_image/<?php echo $data[7]; ?>" alt="Gallery Image" class="img-fluid">
+                        </a>
+                    </div>
             <?php
+                        }
+                    }
+                    else
+                    {
+                        echo "<script>alert('No Record Found'); window.location='index.php';</script>";
                     }
                 }
             ?>
         </div>
-
-        <!-- gallery popups -->
-        <!-- popup-->
-        <div id="gal1" class="pop-overlay animate">
-            <div class="popup">
-                <img src="images/g1.jpg" alt="Popup Image" class="img-fluid" />
-                <a class="close" href="#gallery">&times;</a>
-            </div>
-        </div>
-        <!-- //popup -->
-        <!-- popup-->
-        <div id="gal2" class="pop-overlay animate">
-            <div class="popup">
-                <img src="images/g2.jpg" alt="Popup Image" class="img-fluid" />
-                <a class="close" href="#gallery">&times;</a>
-            </div>
-        </div>
-        <!-- //popup -->
-        <!-- popup-->
-        <div id="gal3" class="pop-overlay animate">
-            <div class="popup">
-                <img src="images/g3.jpg" alt="Popup Image" class="img-fluid" />
-                <a class="close" href="#gallery">&times;</a>
-            </div>
-        </div>
-        <!-- //popup3 -->
-        <!-- popup-->
-        <div id="gal4" class="pop-overlay animate">
-            <div class="popup">
-                <img src="images/g4.jpg" alt="Popup Image" class="img-fluid" />
-                <a class="close" href="#gallery">&times;</a>
-            </div>
-        </div>
-        <!-- //popup -->
-        <!-- popup-->
-        <div id="gal5" class="pop-overlay animate">
-            <div class="popup">
-                <img src="images/g5.jpg" alt="Popup Image" class="img-fluid" />
-                <a class="close" href="#gallery">&times;</a>
-            </div>
-        </div>
-        <!-- //popup -->
-        <!-- popup-->
-        <div id="gal6" class="pop-overlay animate">
-            <div class="popup">
-                <img src="images/g6.jpg" alt="Popup Image" class="img-fluid" />
-                <a class="close" href="#gallery">&times;</a>
-            </div>
-        </div>
-        <!-- //popup -->
-        <!-- //gallery popups -->
     </div>
 </div>
 <!-- //gallery -->
